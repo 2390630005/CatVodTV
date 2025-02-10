@@ -30,6 +30,8 @@ public class Result {
     private String format;
     @SerializedName("danmaku")
     private String danmaku;
+    @SerializedName("click")
+    private String click;
     @SerializedName("msg")
     private String msg;
     @SerializedName("url")
@@ -91,6 +93,10 @@ public class Result {
 
     public static String error(String msg) {
         return Result.get().vod(Collections.emptyList()).msg(msg).string();
+    }
+
+    public static String notify(String msg) {
+        return Result.get().msg(msg).string();
     }
 
     public static Result get() {
@@ -171,6 +177,11 @@ public class Result {
 
     public Result danmaku(String danmaku) {
         this.danmaku = danmaku;
+        return this;
+    }
+
+    public Result click(String click) {
+        this.click = click;
         return this;
     }
 
